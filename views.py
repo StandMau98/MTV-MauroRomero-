@@ -4,8 +4,8 @@ from django.template import Template, Context, loader
 
 # Create your views here.
 def Mi_familia(request):
-    Conocidos = Familia
-    datos = {"Mi familia": Familia}
+    conocidos = Familia.objects.all()
+    datos = {"Mi_familia": conocidos}
     plantilla = loader.get_template("Familiares.html")
     documento = plantilla.render(datos)
     return HttpResponse(documento)
